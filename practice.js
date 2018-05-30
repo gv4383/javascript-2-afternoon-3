@@ -117,9 +117,10 @@ contains(names, 'Colt', function(result){
   Write a function called uniq that takes in an array and a callback function.
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
-
+// let test = [ 'alice', 'alice', 'bob', 'charlie', 'charlie', 'danielle', 'tester', 'tester', 'tester' ];
 function uniq(arr, cb) {
-  arr.sort((a,b) => a - b); // sorts array alphabetically
+  arr.sort((a, b) => a - b); // sorts array alphabetically
+  // arr.sort(function (a, b) {return a - b});
   for (let i = arr.length - 1; i >= 0; i--) {
     if (arr[i] === arr[i - 1]) {
       arr.splice(i, 1);
@@ -164,7 +165,14 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+let rand = [1, 10, 8, 9, 20];
+function getUserById(arr, id, cb) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].id === id) {
+      return cb(arr[i]);
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
